@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环广告</title>
+	<script>
+		// window.onload = initBanner;
+
+		// var thisAd = 0;
+		// function initBanner() {
+		// 	if (document.getElementById("adBanner").parentNode.tagName == "A") {
+
+		// 		document.getElementById("adBanner").parentNode.onclick = newLocation;
+		// 	}
+		// 	rotate();
+		// }
+
+		// function newLocation() {
+		// 	var adURL = ["baidu.com", "alibaba.com", "v.qq.com"];
+		// 	document.location.href = "http://www." + adURL[thisAd];
+		// 	return false;
+		// }
+
+		// function rotate() {
+		// 	var src = ["images/baidu.jpg", "images/alibaba.jpg", "images/tengxun.jpg"];
+			
+		// 	thisAd++;
+		// 	if (thisAd == src.length) {
+		// 		thisAd = 0;
+		// 	}
+
+		// 	document.getElementById("adBanner").src = src[thisAd];
+
+		// 	setTimeout(rotate, 3000);
+		// }
+		function countfuncs() {
+			var funcs = [];
+			for (var i = 0; i < 10; i++) {
+				funcs[i] = function() { return i; };
+			return funcs;
+			}
+		}
+
+		var fas = countfuncs();
+		fas[5]();
+	</script> 
+
+</head>
+<body>
+	<!-- <div>
+		<a href="http://www.baidu.com"><img src="images/baidu.jpg" alt="" id="adBanner"></a>
+	</div> -->
+</body>
+</html>

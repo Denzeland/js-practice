@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+	Array.matrix = function(crows, cols, intinal) {
+		var arr = [];
+		for (var i = 0; i < crows; i++) {
+			var numcols = [];
+			for (j = 0; j < cols; j++) {
+				numcols[j] = intinal;
+			}
+			arr[i] = numcols;
+		}
+		return arr;
+	}
+	var names = Array.matrix(5,5,5);
+	alert(names);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>显示系统时间</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		#show {
+			width: 600px;
+			height: 300px;
+			margin: 100px auto;
+			font-size: 30px;
+			background-color: #99E8EA;
+			border: 1px solid black;
+			text-align: center;
+			line-height: 300px;
+			color: red;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			showtime();
+		}
+		function checktime(i) {
+			if (i<10) {
+				i = "0" + i;
+			}
+			return i;
+		}
+		function showtime() {
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = now.getMonth()+1;
+			var d = now.getDate();
+			var dayArr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+			var h = now.getHours();
+			var m = now.getMinutes();
+			var s = now.getSeconds();
+			m = checktime(m);
+			s = checktime(s);
+			document.getElementById("show").innerHTML =""+year+"年"+month+"月"+d+"日 "+dayArr[now.getDay()]+h+":"+m+":"+s;
+			t = setTimeout("showtime()", 500);
+		}
+	</script>
+</head>
+<body>
+	<div id="show">这是时间显示区域</div>
+</body>
+</html>

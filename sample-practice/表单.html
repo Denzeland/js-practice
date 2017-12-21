@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择并转移</title>
+	<script>
+		window.onload = initTrans;
+		window.onunload = function () {};
+
+		function initTrans() {
+			document.getElementById("mySelect").selectedIndex = 0;
+			document.getElementById("mySelect").onchange = jumPage;
+		}
+
+		function jumPage() {
+			var sel = document.getElementById("mySelect");
+			var newPage = sel.options[sel.selectedIndex].value;
+			if (newPage != "") {
+				window.location = newPage;
+			}
+		}
+	</script>
+</head>
+<body>
+	<select name="" id="mySelect">
+		<option value="http://www.baidu.com" selected>百度</option>
+		<option value="http://www.jd.com">京东</option>
+		<option value="http://www.sina.com">新浪</option>
+		<option value="http://www.taobao.com">淘宝</option>
+		<option value="baidu.com">百度</option>
+		<option value="baidu.com">百度</option>
+		<option value="baidu.com">百度</option>
+		<option value="baidu.com">百度</option>
+		<option value="baidu.com">百度</option>
+	</select>
+</body>
+</html>

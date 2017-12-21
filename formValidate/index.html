@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带密码强度的表单验证</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+	<form method="www.taobao.com">
+		<div class="name">
+			<label for="userName">
+				<span>  会员名: </span><input type="text" id="userName" class="text">
+			</label>
+			<p class="msg"><i class="icon-notification"></i>5-25个字符，一个汉字为两个字符，推荐使用中文会员名</p>
+		</div>
+		<div class="num"><label><b id="count">0个字符</b></label></div>
+		<div class="login">
+		<label for="psw">
+			<span>登录密码：</span><input type="password" class="text" id="psw">
+		</label>
+		<p class="msg"><i class="icon-checkmark2"></i></p>
+		</div>
+		<div class="remind"><label><span></span><em class="active">弱</em>
+		<em>中</em>
+		<em>强</em></label></div>
+		<div class="checkLogin">
+			<label for="checkPsw">
+				<span>确认密码：</span><input type="password" id="checkPsw" class="text" disabled>
+				<p class="msg">请再输入一次！</p>
+			</label>
+		</div>
+		<div class="check">
+			<label for="validate"><span>验证码：</span><input type="text" id="validate" class="text"></label><a href="javascript:;" class="changeImg" title="重新获取验证码"><img src="images/timg.jpg"></a>
+		</div>
+		<div><input type="submit" class="submitBtn btn" value="同意协议并注册"></div>
+	</form>
+</body>
+</html>

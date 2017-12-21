@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带缩略图的幻灯片</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+		}
+		.slide,
+		.slide-item {
+			width: 100%;
+			height: 520px;
+			position: relative;
+		}
+		.slide-item .slideBg {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.slide {
+			margin-top: 50px;
+		}
+		.slide-container {
+			display: block;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			right: 50%;
+			opacity: 0;
+			transition: all .8s;
+			overflow: hidden;
+		}
+		.slide-container img {
+			width: 100%;
+			height: 520px;
+		}
+		.slide-item .title {
+			width: 300px;
+			height: 150px;
+			padding-top: 20px;
+			text-align: right;
+			box-sizing: border-box;
+			position: absolute;
+			top: 100px;
+			left: 50px;
+			color: #333;
+			/*background-color: rgba(255, 255, 255, .5);*/
+			/*box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);*/
+		}
+		.slide-container.active {
+			right: 0;
+			opacity: 1;
+		}
+		.title h2,
+		.title h3 {
+			opacity: 0;
+			transition: all .8s 1s;
+		}
+		.title h2 {
+			font-size: 30px;
+			line-height: 40px;
+		}
+		.title h3 {
+			font-size: 20px;
+			line-height: 40px;
+		}
+		.slide-container.active h2 {
+			opacity: 1;
+			margin-right: 45px;
+		}
+		.slide-container.active h3 {
+			opacity: 1;
+			margin-right: -45px;
+		}
+		.tab {
+			width: 100%;
+			height: 15px;
+			line-height: 15px;
+			text-align: center;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			/*background-color: #f00;*/
+		}
+		.tab a {
+			display: inline-block;
+			height: 15px;
+			width: 150px;
+			background-color: #000;
+			position: relative;
+		}
+		.tab a:hover {
+			background-color: #b5b5b5;
+		}
+		.tab a:hover img {
+			opacity: 1;
+			bottom: 15px;
+		}
+		.tab a img {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 50px;
+			opacity: 0;
+			transition: all .8s;
+		}
+		.tab-container.active,
+		.tab-container.active:hover {
+			background-color: #f00;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="slide">
+		<div class="slide-item" id="main">
+			<a href="javascript:" class="slide-container">
+				<img src="images/{{index}}.jpg" alt="幻灯片">
+				<div class="title">
+					<h2>{{h2}}</h2>
+					<h3>{{h3}}</h3>
+				</div>
+			</a>
+		</div>
+		<div class="tab" id="toggle">
+			<a href="javascript:switchSlide({{index}});" class="tab-container">
+				<img src="images/{{index}}.jpg" alt="缩略图">
+			</a>
+		</div>
+	</div>
+<script>
+	// 建立一个假数据，生产环境中通过Ajax请求后台数据
+	var data = [
+	{img: 1, h2: "阳光明媚", h3: "纯净绚丽的云彩"},
+	{img: 2, h2: "最美冰岛", h3: "散落的牛羊点缀草原高山"},
+	{img: 3, h2: "云山雾绕", h3: "最静美的云雾朦胧中的村庄"},
+	{img: 4, h2: "雨后彩虹", h3: "令人心驰神往的美丽新西兰"},
+	{img: 5, h2: "夕阳西下", h3: "蜿蜒的河流迷人的晚霞"}
+	];
+	// 封装通过类名或者id获取元素的方法
+	function $(str) {
+		if (str.substr(0, 1) === ".") {
+			return document.getElementsByClassName(str.substr(1));
+		} else {
+			return document.getElementById(str);
+		}
+	}
+	// 
+	function addSlider() {
+		var slide_tmp = $("main").innerHTML,
+			tab_tmp = $("toggle").innerHTML,
+		 	tmpl01 = slide_tmp.replace(/^\s*/g, "").replace(/\s*$/g, ""),
+		 	tmpl02 = tab_tmp.replace(/^\s*/g, "").replace(/\s*$/g, ""),
+		 	slideArr = [],
+		 	tabArr = [];
+		 	console.log(typeof tmpl01);
+		for (var i = 0; i < data.length; i++) {
+			var out_tmp = tmpl01.replace(/{{index}}/g, data[i].img)
+								.replace(/{{h2}}/g, data[i].h2)
+								.replace(/{{h3}}/g, data[i].h3),
+				tabTmp = tmpl02.replace(/{{index}}/g, data[i].img);
+			slideArr.push(out_tmp);
+			tabArr.push(tabTmp);
+		}
+		$("main").innerHTML = slideArr.join("");
+		$("toggle").innerHTML = tabArr.join("");
+	}
+	function switchSlide(n) {
+		var slides = $(".slide-container"),
+			tabs = $(".tab-container");
+			
+		for (var i = 0; i < slides.length; i++) {
+			slides[i].className = slides[i].className.replace(/active/g, "");
+		}
+		for (var j = 0; j < tabs.length; j++) {
+			tabs[j].className = tabs[j].className.replace(/active/g, "");
+		}
+		slides[n-1].className += " active";
+		tabs[n-1].className += " active";
+ 	}
+	window.onload = function() {
+		addSlider();
+		setTimeout(function(){
+			switchSlide(1);
+		}, 1000);
+	}
+</script>
+</body>
+</html>

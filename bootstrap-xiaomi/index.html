@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="node_modules/_bootstrap%403.3.7%40bootstrap/dist/css/bootstrap.css">
+	<title>小米简洁首页</title>
+	<style>
+    a:hover {
+      text-decoration: none;
+    }
+		body {
+			padding-top: 50px;
+		}
+    .goods-show {
+      padding-left: 30px;
+      margin: 10px 0px;
+    }
+		.item img {
+			height: 100%;
+			width: 100%;
+		}
+		.navbar-brand {
+			display: block;
+			width: 50px;
+			height: 50px;
+			background: url("images/mi-logo.png") no-repeat;
+			background-color: #ff6700;
+		}
+    .goods-list {
+      margin-left: 30px;
+      height: 300px;
+    padding-top: 39px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: center;
+    background: #fafafa;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+    }
+    .goods-list img{
+      display: block;
+      width: 160px;
+      height: 160px;
+    }
+    .goods-list .title {
+    margin: 0 20px 3px;
+    font-size: 14px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    }
+     .goods-list .title a {
+      color: #212121;
+     }
+     .goods-list .price {
+      color: #ff6709;
+     }
+    .goods-list .desc {
+      height: 18px;
+    margin: 0 20px 12px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    zoom: 1;
+    color: #b0b0b0;
+    }
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#xiaomi-nav" aria-expanded="false">
+        <span class="sr-only">网站导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="xiaomi-nav">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">小米手机 <span class="sr-only">(current)</span><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">小米MIX2</a></li>
+            <li><a href="#">小米6</a></li>
+            <li><a href="#">小米note3</a></li>
+            <li><a href="#">小米Max2</a></li>
+            <li><a href="#">小米5x</a></li>
+          </ul>
+        </li>
+        <li><a href="#">红米手机</a></li>
+        <li><a href="#">笔记本</a></li>
+       	<li><a href="#">盒子</a></li>
+       	<li><a href="#">新品</a></li>
+       	<li><a href="#">路由器</a></li>
+       	<li><a href="#">服务</a></li>
+       	<li><a href="#">社区</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="搜索">
+        </div>
+        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div id="carousel-example-generic" class="carousel slide banner" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <a href=""><img src="images/banner01.jpg" alt="轮播图"></a>
+    </div>
+    <div class="item">
+      <a href=""><img src="images/banner02.jpg" alt="轮播图"></a>
+    </div>
+    <div class="item">
+     <a href=""><img src="images/banner03.jpg" alt="轮播图"></a>
+    </div>
+    <div class="item">
+      <a href=""><img src="images/banner04.jpg" alt="轮播图"></a>
+    </div>
+    <div class="item">
+      <a href=""><img src="images/banner05.jpg" alt="轮播图"></a>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">前一页</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">后一页</span>
+  </a>
+</div>
+<div>
+<div class="contanier goods-show">
+  <div class="row">
+    <div class="col-md-2 goods-list">
+      <a href=""><img src="images/pro01.png" alt=""></a>
+      <h3 class="title"><a href="">小米电视4A 43英寸 标准版</a></h3>
+      <p class="desc">全高清HDR 四核高性能处理器</p>
+      <p class="price">1799元</p>
+    </div>
+    <div class="col-md-2 goods-list">
+      <a href=""><img src="images/pro02.png" alt=""></a>
+      <h3 class="title"><a href="">小米电视4A 43英寸 标准版</a></h3>
+      <p class="desc">全高清HDR 四核高性能处理器</p>
+      <p class="price">1799元</p>
+    </div>
+    <div class="col-md-2 goods-list">
+      <a href=""><img src="images/pro03.png" alt=""></a>
+      <h3 class="title"><a href="">小米电视4A 43英寸 标准版</a></h3>
+      <p class="desc">全高清HDR 四核高性能处理器</p>
+      <p class="price">1799元</p>
+    </div>
+    <div class="col-md-2 goods-list">
+      <a href=""><img src="images/pro04.jpg" alt=""></a>
+      <h3 class="title"><a href="">小米电视4A 43英寸 标准版</a></h3>
+      <p class="desc">全高清HDR 四核高性能处理器</p>
+      <p class="price">1799元</p>
+    </div>
+    <div class="col-md-2 goods-list">
+      <a href=""><img src="images/pro05.png" alt=""></a>
+      <h3 class="title"><a href="">小米电视4A 43英寸 标准版</a></h3>
+      <p class="desc">全高清HDR 四核高性能处理器</p>
+      <p class="price">1799元</p>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#mix2" aria-controls="home" role="tab" data-toggle="tab">小米MIX2</a></li>
+    <li role="presentation"><a href="#mi6" aria-controls="profile" role="tab" data-toggle="tab">小米6</a></li>
+    <li role="presentation"><a href="#note3" aria-controls="messages" role="tab" data-toggle="tab">小米note3</a></li>
+    <li role="presentation"><a href="#max2" aria-controls="settings" role="tab" data-toggle="tab">小米Max2</a></li>
+    <li role="presentation"><a href="#mi5x" aria-controls="settings" role="tab" data-toggle="tab">小米5x</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="mix2">...</div>
+    <div role="tabpanel" class="tab-pane" id="mi6">...</div>
+    <div role="tabpanel" class="tab-pane" id="note3">...</div>
+    <div role="tabpanel" class="tab-pane" id="max2">...</div>
+    <div role="tabpanel" class="tab-pane" id="mi5x">...</div>
+  </div>
+
+</div>
+
+<script src="node_modules/_jquery%403.2.1%40jquery/dist/jquery.js"></script>
+<script src="node_modules/_bootstrap%403.3.7%40bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>

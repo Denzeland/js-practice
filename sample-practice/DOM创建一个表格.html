@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建一个4*3的表格</title>
+	
+</head>
+<body>
+	
+</body>
+<script>
+		function c(tagName) {
+			return document.createElement(tagName);
+		}
+
+		var table = c("table");
+		var tbody = c("tbody");
+
+		for (var i = 0; i < 4; i ++) {
+			var tr = c("tr");
+			for (var j = 0; j < 3; j++) {
+				var td = c("td");
+
+				var txt = document.createTextNode("txt");
+				td.appendChild(txt);
+				
+				tr.appendChild(td);
+
+				// td.width = 100px;
+				// td.height = 50px;
+			}
+			tbody.appendChild(tr);
+		}
+		table.appendChild(tbody);
+
+		
+		table.style.cellpadding = 3;
+		tbody.style.cellspacing = 0;
+		table.width = 400;
+		table.height = 300;
+		table.setAttribute("border", "1px solid red");
+
+		document.body.appendChild(table);
+
+	</script>
+</html>

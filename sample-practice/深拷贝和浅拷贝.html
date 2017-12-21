@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深拷贝和浅拷贝的代码</title>
+</head>
+<body>
+	<script>
+	    /**
+	     * 浅拷贝的代码
+	     * 新建对象person1
+	     * @type {Object}
+	     */
+		var person1 = {
+			name: "张三",
+			age: 24,
+			gender: "男",
+		// 给对象添加浅拷贝方法
+			copy: function () {
+				var temp = {};
+				for ( var k in this ) {
+					temp [ k ] = this [ k ];
+				}
+				return temp;
+			}
+		}
+		// 把person1拷贝给newPerson
+		var newPerson = person1.copy();
+		console.log(newPerson);
+
+		// 浅拷贝的另一种写法
+		var person2 = {
+			name: "李四",
+			age: 25,
+			gender: "女"
+		}
+		person2.copy = function ( o ) {
+			for ( var k in this ) {
+				o [ k ] = this [ k ];
+			}
+		}
+
+		var p = {};
+		person2.copy( p );
+		console.log( p );
+
+		// 以下是深拷贝的代码
+		var car = { name: "一汽大众" };
+		var person3 = {
+			name: "王五",
+			age: 35,
+			gender: "女",
+			car: car,
+			deepCopy: function () {
+				var temp = {};
+				for ( var k in this ) {
+					if ( typeof this [ k ] === "Object" ) {
+					temp [ k ] = this [ k ].deepCopy();
+				} else {
+					temp [ k ] = this [ k ];
+					}
+				}
+				
+				return temp;
+			}
+		}
+
+		var person4 = person3.deepCopy();
+		console.log(person4);
+
+		person3.name = "赵六";
+		person3.age = 18;
+		person3.gender = "男";
+		person3.car = { name: "华晨宝马" };
+
+		console.log(person4);
+
+	</script>
+</body>
+</html>

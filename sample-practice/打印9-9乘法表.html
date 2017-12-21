@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>99乘法表</title>
+	<script>
+		// document.write("<table border='1' cellspacing='0' cellpadding='0'>");
+		// for (var i = 1; i <= 9; i++) {
+		// 	document.write("<tr>");
+		// 	for (var j = 1; j <= i; j++) {
+		// 		document.write("<td>");
+		// 		document.write(i + '*' + j + '=' + i*j);
+		// 		document.write("</td>");
+		// 	}
+		// 	document.write("</tr>");
+		// }
+		// document.write("</table>");
+		// 反转输出每一个数字
+		// console.log(8/10);
+		// var num = Number(prompt("请输入一个整数", ""));
+		// if (num) {
+		// 	do {
+		// 		num = parseInt(num);
+		// 		var temp = num % 10;
+		// 		num = parsrInt(num / 10);
+		// 		console.log(temp);
+		// 	} while(num !== 0);
+			
+		// } else if (num === 0) {
+		// 	console.log("0");
+		// } else {
+		// 	console.log("您输入的是非整数");
+		// }
+		var array = [24, 35, 42, 83, 94, 104, 76];
+		var m = 0;
+		var n = 0;
+		for (var i = 0; i < array.length-1; i++) {
+			var isSort = true;
+			for (var j = 0; j < array.length-1-i; j++) {
+				if (array[j] > array[j+1]) {
+					isSort = false;
+					var temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+				m++;
+			}
+			n++;
+			if (isSort) {
+				break;
+			}
+		}
+		console.log("内循环是" + m);
+		console.log("外循环是" + n);
+		console.log(array);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
